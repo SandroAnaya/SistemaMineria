@@ -23,21 +23,29 @@ public class ClienteControl {
     public DefaultTableModel listar(String texto) {
         List<Cliente> lista = new ArrayList();
         lista.addAll(DATOS.listar(texto));
-        String[] titulos = {"Id", "Nombres", "Apellidos", "Direccion", "RUC", "Celular"};
+        String[] titulos = {
+            "Id", 
+            "Nombres", 
+            "Apellidos", 
+            "Direccion", 
+            "DNI",
+            "Celular"};
         this.modeloTabla = new DefaultTableModel(null, titulos);
         String[] registro = new String[6];
 
         this.registrosMostrados = 0;
         for (Cliente item : lista) {
+            System.out.println(""+item.toString());
             registro[0] = Integer.toString(item.getId());
             registro[1] = item.getNombres();
             registro[2] = item.getApellidos();
-            registro[3] = item.getDni();
-            registro[4] = item.getDireccion();
+            registro[3] = item.getDireccion();
+            registro[4] = item.getDni();
             registro[5] = item.getCelular();
             this.modeloTabla.addRow(registro);
             this.registrosMostrados = this.registrosMostrados + 1;
         }
+        System.out.println(""+lista.size());
         return this.modeloTabla;
     }
 

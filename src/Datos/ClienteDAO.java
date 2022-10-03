@@ -25,7 +25,8 @@ public class ClienteDAO implements CrudSimpleInterface<Cliente> {
     public List<Cliente> listar(String texto) {
         List<Cliente> registros = new ArrayList();
         try {
-            ps = CON.conectar().prepareStatement("SELECT ID_CLIENTE,nombre,apellido,dni,direccion,celular FROM sistemamineria.clientes WHERE nombre LIKE ? ORDER BY ID_CLIENTE ASC ");
+            ps = CON.conectar().prepareStatement("SELECT ID_CLIENTE,nombre,apellido,direccion,dni,celular "
+                    + "FROM sistemamineria.clientes WHERE nombre LIKE ? ORDER BY ID_CLIENTE ASC ");
             ps.setString(1, "%" + texto + "%");
             rs = ps.executeQuery();
             while (rs.next()) {

@@ -32,7 +32,7 @@ public class UsuarioDAO implements CrudSimpleInterface<Usuario> {
             ps.close();
             rs.close();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            //JOptionPane.showMessageDialog(null, e.getMessage());
         } finally {
             ps = null;
             rs = null;

@@ -23,7 +23,6 @@ public class UsuarioControl {
             VariablesGlobales.usuario = usu.getUsuario();
         } else {
             resp = "Error";
-            JOptionPane.showConfirmDialog(null, "error");
         }
         return resp;
     }
